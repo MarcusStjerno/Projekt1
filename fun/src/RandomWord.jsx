@@ -30,6 +30,7 @@ const RandomWordGenerator = () => {
   return (
     <div
       style={{
+      
         textAlign: 'center',
         marginTop: '50px',
         padding: '20px', // Add padding to the outer div for better visibility
@@ -53,7 +54,7 @@ const RandomWordGenerator = () => {
         Take me to youtube!
       </Button>
       {randomWords.length > 0 && (
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
+        <ul style={{ listStyleType: 'none', padding: 0, flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
           {randomWords.map((word, index) => (
             <li
               key={word}
@@ -65,7 +66,7 @@ const RandomWordGenerator = () => {
                 borderRadius: '5px',
               }}
             >
-              {`${index + 1}. ${word}`}
+             {`${index + 1}. ${word}`}
             </li>
           ))}
         </ul>
