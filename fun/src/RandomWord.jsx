@@ -1,5 +1,6 @@
 // RandomWordGenerator.js
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 const RandomWordGenerator = () => {
   const [randomWords, setRandomWords] = useState([]);
@@ -10,7 +11,6 @@ const RandomWordGenerator = () => {
       if (!response.ok) {
         throw new Error('Failed to fetch random words');
       }
-
       const words = await response.json();
       setRandomWords(words);
     } catch (error) {
@@ -19,13 +19,30 @@ const RandomWordGenerator = () => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Random Word Generator</h1>
-      <button onClick={generateRandomWords}>Generate Random Words</button>
+      <Button
+        variant='danger'
+        onClick={generateRandomWords}
+        style={{ padding: '10px', marginBottom: '10px' }}
+      >
+        Generate Random Words
+      </Button>
       {randomWords.length > 0 && (
-        <ul>
+        <ul style={{ listStyleType: 'none', padding: 0 }}>
           {randomWords.map((word, index) => (
-            <li key={index}>{word}</li>
+            <li
+              key={word}
+              style={{
+                fontSize: '20px',
+                margin: '10px',
+                border: '1px solid #ccc',
+                padding: '10px',
+                borderRadius: '5px',
+              }}
+            >
+              {`${index + 1}. ${word}`}
+            </li>
           ))}
         </ul>
       )}
