@@ -1,6 +1,9 @@
 
 import React from 'react';
 import RandomWordGenerator from './RandomWord';
+import './App.css';
+
+
 
 function App() {
 
